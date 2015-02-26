@@ -5,7 +5,7 @@
   <h1>Todo List</h1>
 
   <table class="todo-table">
-    {{ page._todos.each do |todo| }}
+    {{ _todos.each do |todo| }}
       <tr e-click="params._index = index" class="{{ if params._index.or(0).to_i == index }}selected{{ end }}">
         <td><input type="checkbox" checked="{{todo._completed}}" /></td>
         <td class="{{ if todo._completed}}complete{{end}}">{{ todo._name }}</td>
