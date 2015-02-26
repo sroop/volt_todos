@@ -6,7 +6,7 @@
 
   <table class="todo-table">
     {{ page._todos.each do |todo| }}
-      <tr>
+      <tr e-click="params._index = index" class="{{ if params._index.or(0).to_i == index }}selected{{ end }}">
         <td><input type="checkbox" checked="{{todo._completed}}" /></td>
         <td class="{{ if todo._completed}}complete{{end}}">{{ todo._name }}</td>
         <td><button e-click="remove_todo(todo)">X</button></td>
@@ -20,3 +20,8 @@
       <input class="form-control" type="text" placeholder="I need to..." value="{{ page._new_todo  }}" />
     </div>
   </form>
+
+{{ if current_todo }}
+  <h2>{{ current_todo._name }}</h2>
+  <textarea>{{ current_todo._description }}</textarea>
+{{ end }}
