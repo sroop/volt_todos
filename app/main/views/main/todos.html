@@ -2,7 +2,8 @@
   Todos
 
 <:Body>
-  <h1>Todo List</h1>
+  <h1>{{ _todos.size }} Todo List</h1>
+  <button e-click="check_all">Check all ( {{ incomplete }} )</button>
 
   <table class="todo-table">
     {{ _todos.each do |todo| }}

@@ -22,6 +22,17 @@ class MainController < Volt::ModelController
   def current_todo
     _todos[params._index.or(0).to_i]
   end
+
+  def check_all
+    _todos.each { |todo| todo._completed = true }
+  end
+
+  def incomplete
+    _todos.size - completed
+  end
+
+  def completed
+    _todos.count { |todo| todo._completed }
   end
 
   private
