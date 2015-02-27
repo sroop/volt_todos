@@ -22,7 +22,11 @@
     </div>
   </form>
 
-{{ if current_todo }}
-  <h2>{{ current_todo._name }}</h2>
-  <textarea>{{ current_todo._description }}</textarea>
-{{ end }}
+  {{ template "mytodo"}}
+
+<:MyTodo>
+
+  {{ if current_todo }}
+    <h2>{{ current_todo._name }}</h2>
+    <textarea>{{ current_todo._description }}</textarea>
+  {{ end }}
