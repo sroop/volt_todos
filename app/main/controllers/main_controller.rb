@@ -13,6 +13,7 @@ class MainController < Volt::ModelController
   def add_todo
     _todos << { name: page._new_todo }
     page._new_todo = ''
+    flash._successes << "Your todo has been saved"
   end
 
   def remove_todo(todo)
