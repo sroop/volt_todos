@@ -155,4 +155,5 @@ DEPENDENCIES
   volt (= 0.8.26)
   volt-bootstrap
   volt-bootstrap-jumbotron-theme
+  volt-fields
   volt-user-templates

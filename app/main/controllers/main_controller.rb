@@ -3,17 +3,18 @@ class MainController < Volt::ModelController
   model :store
 
   def index
-    # Add code for when the index view is loaded
+    new
   end
 
-  def about
-    # Add code for when the about view is loaded
+  def new
+    page._new_todo = _todos.buffer
   end
 
   def add_todo
-    _todos << { name: page._new_todo }
-    page._new_todo = ''
-    flash._successes << "Your todo has been saved"
+    page._new_todo.save!.then do
+      new
+      flash._successes << "Your todo has been saved"
+    end
   end
 
   def remove_todo(todo)
